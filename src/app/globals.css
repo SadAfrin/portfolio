@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-dark: #0a0b1e;
+  --color-brand-navy: #111432;
+  --color-brand-accent: #6366f1;
+  --color-brand-pink: #d946ef;
+  
+  --background-image-hero-pattern: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0b1e;
+    --foreground: #d1d5db;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass-card {
+    background: rgba(17, 20, 50, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .neon-border-hover:hover {
+    border-color: #6366f1;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(to right, #6366f1, #d946ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .gradient-button {
+    background: linear-gradient(to right, #2563eb, #9333ea);
+  }
 }
+
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animated-gradient {
+    background: linear-gradient(-45deg, #6366f1, #d946ef, #2563eb, #9333ea);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+
+  .grid-pattern {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .mesh-gradient {
+    background-color: transparent;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+  }
+  
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: .5;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes float-text {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .animate-float-text {
+    animation: float-text 20s linear infinite;
+  }
+}
+
+
+
+
