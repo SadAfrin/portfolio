@@ -86,9 +86,9 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 z-20">
             <a 
               href="#home" 
               onClick={handleLogoClick}
@@ -101,8 +101,8 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Desktop Navigation - Absolute Center */}
+          <div className="hidden md:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2 z-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -124,19 +124,21 @@ export default function Navbar() {
                 )}
               </a>
             ))}
-            <div className="pl-4">
-              <a 
-                href="#contact"
-                onClick={(e) => handleNavClick(e, "#contact")}
-                className="gradient-button text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/20 hover:scale-105 active:scale-95 transition-all"
-              >
-                Hire Me
-              </a>
-            </div>
+          </div>
+
+          {/* Action Button - Far Right */}
+          <div className="hidden md:block z-20">
+            <a 
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="gradient-button text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/20 hover:scale-105 active:scale-95 transition-all"
+            >
+              Hire Me
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden z-20">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white p-2 focus:outline-none"

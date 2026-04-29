@@ -27,7 +27,7 @@ export default function Skills() {
       title: "Others",
       icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
       color: "green-400",
-      skills: ["Git", "GitHub", "PHP", "Basic C++"]
+      skills: ["Git", "GitHub", "PHP", "C++"]
     }
   ];
 

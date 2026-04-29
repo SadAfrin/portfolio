@@ -36,17 +36,17 @@ export default function Experience() {
 
   const professionalExperience = [
     {
-      year: "CURRENT",
+      year: "PRESENT",
       role: "Student Tutor (ST)",
-      company: "[Your University Name]",
-      description: "Assisting fellow students in core computer science courses, focusing on programming fundamentals and data structures.",
+      company: "[University Name Pending]",
+      description: "[Description Pending - Please provide specific details]",
       color: "brand-accent"
     },
     {
       year: "ACTIVE",
-      role: "HR / Leadership Involvement",
+      role: "BUCSC volunteer / HR-related leadership role",
       company: "BUCSC (University Club)",
-      description: "Volunteering and leading HR-related initiatives within the university's computer science club. Coordinating events and member engagement.",
+      description: "[Description Pending - Please provide specific details]",
       color: "white/20"
     }
   ];
@@ -55,8 +55,8 @@ export default function Experience() {
     {
       year: "CURRENT",
       degree: "BSc in Computer Science & Engineering",
-      institution: "[Your University Name]",
-      description: "Specializing in software development and full-stack systems. Core coursework includes Algorithms, Database Systems, and Web Engineering.",
+      institution: "[University Name Pending]",
+      description: "Focusing on software development and full-stack systems. Core coursework includes Algorithms, Database Systems, and Web Engineering.",
       color: "brand-pink"
     }
   ];

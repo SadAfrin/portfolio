@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
+import HeroImage from "@/assets/HeroProfileImage.png";
 
 export default function Hero() {
   const avatarRef = useRef(null);
@@ -90,12 +91,10 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full animate-pulse-slow border-2 border-brand-accent/50 scale-110 group-hover:scale-125 transition-transform duration-500"></div>
             <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-brand-dark overflow-hidden z-10 bg-brand-dark">
               <Image 
-                alt="Sajid Yaqub" 
-                fill
+                alt="Sadia Afrin" 
                 priority
-                sizes="(max-width: 768px) 192px, 224px"
                 className="object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFABUkDWpNyoEmef5tLm7WoL4X6B-CkwhDJbxUG4aKUcJgIkY-bupPXOARdiIHhUT-gP5T-jBxIzKaPO9NNtK6NmVt3A1GyUZXQe45HgvXHTDbRcdEbbuYEN3nToznX-G27zb-tGZ5IWeinOZEK2E3XzQp_GaBgv_kSRhV6jARSLIjPdrVRpthFzJcU1dh5eZfwd2cMi-5mjFqXKPvFGTHaOPPRtiaVbBVL6PRKyorwdg0nqzlSrSRv82IbvH2IyhKGztGJAnD9yVN" 
+                src={HeroImage} 
               />
             </div>
           </div>
@@ -107,15 +106,18 @@ export default function Hero() {
         </motion.div>
         
         <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-white mb-4">
-          Hi, I'm <span className="gradient-text">Sajid Yaqub</span>
+          Hi, I'm <span className="gradient-text">Sadia Afrin</span>
         </motion.h1>
         
-        <motion.h2 variants={itemVariants} className="text-xl md:text-2xl font-medium text-gray-400 mb-6">
-          Full-Stack Web Developer
+        <motion.h2 
+          variants={itemVariants} 
+          className="text-xl md:text-2xl font-medium text-gray-400 mb-6 min-h-[1.5em]"
+        >
+          <TypingEffect text="Full-Stack Web Developer (MERN)" />
         </motion.h2>
         
         <motion.p variants={itemVariants} className="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Building high-performance web applications with a focus on seamless user experience and robust architecture.
+          A Computer Science & Engineering undergraduate focused on building high-performance web applications using the MERN stack and modern backend architectures.
         </motion.p>
         
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -123,7 +125,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(37, 99, 235, 0.4)" }}
             whileTap={{ scale: 0.95 }}
             className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center gap-2 transition-all" 
-            href="/resume.pdf"
+            href="/resume-placeholder.pdf"
             download
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,5 +163,30 @@ export default function Hero() {
         </svg>
       </div>
     </section>
+  );
+}
+
+function TypingEffect({ text }) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(text.slice(0, i));
+      i++;
+      if (i > text.length) {
+        clearInterval(interval);
+        setIsComplete(true);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return (
+    <span>
+      {displayedText}
+      <span className={`inline-block w-0.5 h-[1.1em] bg-brand-accent ml-1 translate-y-1 ${isComplete ? 'animate-pulse' : ''}`}></span>
+    </span>
   );
 }
