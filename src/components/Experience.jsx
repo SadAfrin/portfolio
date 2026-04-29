@@ -56,7 +56,7 @@ export default function Experience() {
       year: "JUNE 2021 – PRESENT",
       degree: "BSc in Computer Science & Engineering",
       institution: "BRAC University",
-      description: "Focusing on full-stack web development, backend architecture, and core computer science fundamentals with a current CGPA of 3.87/4.00.",
+      description: "Result: Current CGPA of 3.87/4.00.",
       color: "brand-pink",
       current: true,
       gradDate: "EXPECTED GRADUATION: MAY 2026"
@@ -137,7 +137,7 @@ export default function Experience() {
                   <span className={`text-xs font-bold ${exp.color === 'brand-accent' ? 'text-brand-accent' : 'text-gray-500'} uppercase tracking-widest`}>{exp.year}</span>
                   <h3 className="text-lg font-bold text-white mt-1">{exp.role}</h3>
                   <p className="text-sm text-gray-500 font-medium">{exp.company}</p>
-                  <p className="text-gray-400 mt-4 leading-relaxed text-[13px]">{exp.description}</p>
+                  <p className="text-gray-400 mt-4 leading-relaxed text-sm">{exp.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -185,7 +185,7 @@ export default function Experience() {
                   <h3 className="text-lg font-bold text-white mt-1">{edu.degree}</h3>
                   <p className="text-sm text-gray-500 font-medium">{edu.institution}</p>
                   {edu.description && (
-                    <p className="text-gray-400 mt-4 leading-relaxed text-[13px]">{edu.description}</p>
+                    <p className="text-gray-400 mt-4 leading-relaxed text-sm">{edu.description}</p>
                   )}
                 </motion.div>
               ))}

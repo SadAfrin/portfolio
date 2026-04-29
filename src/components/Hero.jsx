@@ -122,9 +122,9 @@ export default function Hero() {
         
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <motion.a 
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(37, 99, 235, 0.4)" }}
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(37, 99, 235, 0.3)", boxShadow: "0 0 25px rgba(37, 99, 235, 0.4)" }}
             whileTap={{ scale: 0.95 }}
-            className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center gap-2 transition-all" 
+            className="w-full sm:w-auto px-8 py-3 bg-blue-600/20 backdrop-blur-md border border-blue-400/30 text-white rounded-lg flex items-center justify-center gap-2 transition-all" 
             href="/resume-placeholder.pdf"
             download
           >
