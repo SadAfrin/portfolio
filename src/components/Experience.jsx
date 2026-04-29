@@ -17,10 +17,10 @@ export default function Experience() {
 
     [lineRef1, lineRef2].forEach(ref => {
       if (ref.current) {
-        gsap.fromTo(ref.current, 
+        gsap.fromTo(ref.current,
           { scaleY: 0 },
-          { 
-            scaleY: 1, 
+          {
+            scaleY: 1,
             ease: "none",
             scrollTrigger: {
               trigger: ref.current,
@@ -36,40 +36,56 @@ export default function Experience() {
 
   const professionalExperience = [
     {
-      year: "PRESENT",
+      year: "OCT 2024 – MAY 2025",
       role: "Student Tutor (ST)",
-      company: "[University Name Pending]",
-      description: "[Description Pending - Please provide specific details]",
+      company: "BRAC University, Dhaka",
+      description: "Providing academic support to fellow students through personalized study plans and group tutoring sessions to enhance performance in core CSE courses.",
       color: "brand-accent"
     },
     {
-      year: "ACTIVE",
-      role: "BUCSC volunteer / HR-related leadership role",
-      company: "BUCSC (University Club)",
-      description: "[Description Pending - Please provide specific details]",
+      year: "OCT 2023 – DEC 2024",
+      role: "HR Director",
+      company: "BRAC University Community Service Club (BUCSC)",
+      description: "Leading recruitment, member engagement, and cross-departmental coordination to drive team performance and club growth.",
       color: "white/20"
     }
   ];
 
   const education = [
     {
-      year: "CURRENT",
+      year: "JUNE 2021 – PRESENT",
       degree: "BSc in Computer Science & Engineering",
-      institution: "[University Name Pending]",
-      description: "Focusing on software development and full-stack systems. Core coursework includes Algorithms, Database Systems, and Web Engineering.",
-      color: "brand-pink"
+      institution: "BRAC University",
+      description: "Focusing on full-stack web development, backend architecture, and core computer science fundamentals with a current CGPA of 3.87/4.00.",
+      color: "brand-pink",
+      current: true,
+      gradDate: "EXPECTED GRADUATION: MAY 2026"
+    },
+    {
+      year: "2019",
+      degree: "Higher Secondary Certificate (HSC)",
+      institution: "Dhaka Board (Science)",
+      description: "Result: GPA 5.00 / 5.00.",
+      color: "brand-pink/50"
+    },
+    {
+      year: "2017",
+      degree: "Secondary School Certificate (SSC)",
+      institution: "Jashore Board (Science)",
+      description: "Result: GPA 5.00 / 5.00.",
+      color: "brand-pink/50"
     }
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="py-24 bg-brand-navy/30 relative overflow-hidden" 
+      className="py-24 bg-brand-navy/30 relative overflow-hidden"
       id="experience"
     >
       {/* Background Grid & Particles */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
-      
+
       {isMounted && (
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
@@ -77,9 +93,9 @@ export default function Experience() {
               key={i}
               initial={{ y: "110%", x: `${Math.random() * 100}%`, opacity: Math.random() }}
               animate={{ y: "-10%", opacity: [0, 0.5, 0] }}
-              transition={{ 
-                duration: 10 + Math.random() * 10, 
-                repeat: Infinity, 
+              transition={{
+                duration: 10 + Math.random() * 10,
+                repeat: Infinity,
                 delay: Math.random() * 10,
                 ease: "linear"
               }}
@@ -102,15 +118,15 @@ export default function Experience() {
               <h2 className="text-2xl font-bold text-white">Experience & Leadership</h2>
             </div>
             <div className="space-y-12 relative">
-              <div 
+              <div
                 ref={lineRef1}
                 className="absolute inset-y-0 left-[11px] w-0.5 bg-gradient-to-b from-brand-accent to-transparent origin-top shadow-[0_0_15px_rgba(99,102,241,0.5)]"
               ></div>
               <div className="absolute inset-y-0 left-[11px] w-0.5 bg-white/5"></div>
-              
+
               {professionalExperience.map((exp, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -121,12 +137,12 @@ export default function Experience() {
                   <span className={`text-xs font-bold ${exp.color === 'brand-accent' ? 'text-brand-accent' : 'text-gray-500'} uppercase tracking-widest`}>{exp.year}</span>
                   <h3 className="text-lg font-bold text-white mt-1">{exp.role}</h3>
                   <p className="text-sm text-gray-500 font-medium">{exp.company}</p>
-                  <p className="text-gray-400 mt-4 leading-relaxed">{exp.description}</p>
+                  <p className="text-gray-400 mt-4 leading-relaxed text-[13px]">{exp.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
-          
+
           {/* Educational Qualification */}
           <div>
             <div className="flex items-center gap-4 mb-10">
@@ -138,26 +154,39 @@ export default function Experience() {
               <h2 className="text-2xl font-bold text-white">Education</h2>
             </div>
             <div className="space-y-12 relative">
-              <div 
+              <div
                 ref={lineRef2}
                 className="absolute inset-y-0 left-[11px] w-0.5 bg-gradient-to-b from-brand-pink to-transparent origin-top shadow-[0_0_15px_rgba(217,70,239,0.5)]"
               ></div>
               <div className="absolute inset-y-0 left-[11px] w-0.5 bg-white/5"></div>
-              
+
               {education.map((edu, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   className="relative pl-10"
                 >
-                  <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 z-10 transition-colors duration-500 ${edu.color === 'brand-pink' ? 'border-brand-pink shadow-[0_0_10px_rgba(217,70,239,0.5)]' : 'border-white/20'}`}></div>
-                  <span className={`text-xs font-bold ${edu.color === 'brand-pink' ? 'text-brand-pink' : 'text-gray-500'} uppercase tracking-widest`}>{edu.year}</span>
+                  <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 z-10 transition-colors duration-500 ${edu.current ? 'border-brand-pink shadow-[0_0_10px_rgba(217,70,239,0.5)]' : 'border-white/20'}`}>
+                    {edu.current && <div className="absolute inset-0 rounded-full animate-ping bg-brand-pink/20"></div>}
+                  </div>
+                  <div className="flex flex-col mb-1">
+                    <span className={`text-xs font-bold ${edu.current ? 'text-brand-pink' : 'text-gray-500'} uppercase tracking-widest flex flex-wrap items-center gap-x-3 gap-y-1`}>
+                      {edu.year}
+                    </span>
+                    {edu.gradDate && (
+                      <span className="text-[10px] font-bold text-brand-pink uppercase tracking-widest mt-1">
+                        {edu.gradDate}
+                      </span>
+                    )}
+                  </div>
                   <h3 className="text-lg font-bold text-white mt-1">{edu.degree}</h3>
                   <p className="text-sm text-gray-500 font-medium">{edu.institution}</p>
-                  <p className="text-gray-400 mt-4 leading-relaxed">{edu.description}</p>
+                  {edu.description && (
+                    <p className="text-gray-400 mt-4 leading-relaxed text-[13px]">{edu.description}</p>
+                  )}
                 </motion.div>
               ))}
             </div>

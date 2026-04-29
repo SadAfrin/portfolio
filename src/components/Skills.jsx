@@ -15,7 +15,7 @@ export default function Skills() {
       title: "Frontend",
       icon: "M9.75 17L9 21h6l-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
       color: "blue-400",
-      skills: ["React.js", "HTML", "CSS", "Tailwind", "JavaScript"]
+      skills: ["React.js", "Next.js", "HTML", "CSS", "Tailwind", "JavaScript"]
     },
     {
       title: "Backend & DB",
@@ -27,7 +27,7 @@ export default function Skills() {
       title: "Others",
       icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
       color: "green-400",
-      skills: ["Git", "GitHub", "PHP", "C++"]
+      skills: ["Git", "GitHub", "Python", "Java", "C++"]
     }
   ];
 
@@ -124,15 +124,15 @@ export default function Skills() {
                 </div>
                 <h3 className="text-xl font-semibold text-white">{category.title}</h3>
               </div>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {category.skills.map((skill, index) => (
                   <motion.div 
                     key={index}
                     variants={cardVariants}
                     whileHover={{ scale: 1.05, x: 5, borderColor: category.color === 'blue-400' ? '#6366f1' : category.color === 'brand-pink' ? '#d946ef' : '#10b981' }}
-                    className="bg-brand-dark border border-white/5 p-4 rounded-xl flex items-center gap-3 neon-border-hover transition-all cursor-default"
+                    className="bg-brand-dark border border-white/5 p-3 rounded-xl flex items-center justify-center text-center transition-all cursor-default"
                   >
-                    <span className="text-sm font-medium">{skill}</span>
+                    <span className="text-[12px] font-medium leading-tight">{skill}</span>
                   </motion.div>
                 ))}
               </div>

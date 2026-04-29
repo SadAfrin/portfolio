@@ -111,13 +111,13 @@ export default function Hero() {
         
         <motion.h2 
           variants={itemVariants} 
-          className="text-xl md:text-2xl font-medium text-gray-400 mb-6 min-h-[1.5em]"
+          className="text-xl md:text-2xl font-medium text-gray-400 mb-6 min-h-[1.5em] flex justify-center items-center"
         >
           <TypingEffect text="Full-Stack Web Developer (MERN)" />
         </motion.h2>
         
         <motion.p variants={itemVariants} className="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          A Computer Science & Engineering undergraduate focused on building high-performance web applications using the MERN stack and modern backend architectures.
+          Computer Science & Engineering undergraduate focused on building high-performance web applications using the MERN stack and modern backend architectures.
         </motion.p>
         
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -168,25 +168,41 @@ export default function Hero() {
 
 function TypingEffect({ text }) {
   const [displayedText, setDisplayedText] = useState("");
-  const [isComplete, setIsComplete] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(100);
 
   useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayedText(text.slice(0, i));
-      i++;
-      if (i > text.length) {
-        clearInterval(interval);
-        setIsComplete(true);
+    let timer;
+    const handleType = () => {
+      const fullText = text;
+      const updatedText = isDeleting 
+        ? fullText.substring(0, displayedText.length - 1)
+        : fullText.substring(0, displayedText.length + 1);
+
+      setDisplayedText(updatedText);
+
+      if (!isDeleting && updatedText === fullText) {
+        // Pause at the end
+        setTypingSpeed(3000); 
+        setIsDeleting(true);
+      } else if (isDeleting && updatedText === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(100);
+      } else {
+        setTypingSpeed(isDeleting ? 50 : 100);
       }
-    }, 100);
-    return () => clearInterval(interval);
-  }, [text]);
+    };
+
+    timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, typingSpeed, text, loopNum]);
 
   return (
-    <span>
-      {displayedText}
-      <span className={`inline-block w-0.5 h-[1.1em] bg-brand-accent ml-1 translate-y-1 ${isComplete ? 'animate-pulse' : ''}`}></span>
-    </span>
+    <div className="flex items-center">
+      <span>{displayedText}</span>
+      <span className="w-0.5 h-[1.1em] bg-brand-accent ml-1 animate-pulse shrink-0">|</span>
+    </div>
   );
 }

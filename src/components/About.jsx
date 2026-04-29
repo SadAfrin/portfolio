@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CountUp } from "countup.js";
@@ -112,7 +112,7 @@ export default function About() {
             {/* Experience Badge */}
             <div className="absolute -bottom-6 -right-6 glass-card p-6 rounded-xl border border-white/20 text-center z-10">
               <span ref={countRef} className="block text-4xl font-bold text-white mb-1">0</span>
-              <span className="text-xs uppercase tracking-widest text-gray-400 leading-tight">Problems Solved<br/>on Judges</span>
+              <span className="text-xs uppercase tracking-widest text-gray-400 leading-tight">Problems Solved<br/>on Online Judges</span>
             </div>
           </div>
           
@@ -125,17 +125,17 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold text-white mb-8">About Me</h2>
             <div className="space-y-6 text-gray-400">
-              <p>I am a Computer Science & Engineering undergraduate with a deep-rooted interest in full-stack development. My technical journey is fueled by a curiosity for backend systems and a commitment to creating seamless, user-centric web applications.</p>
-              <p>Currently focusing on the MERN stack, I enjoy tackling complex architectural challenges and continuously refining my skills in modern technologies. Beyond coding, I am actively involved in university leadership roles and tutoring, which has sharpened my problem-solving and communication abilities.</p>
-              <p>I am fluent in English and Bengali, and I believe in writing clean, maintainable code that makes a real impact.</p>
+              <p>I am a Computer Science & Engineering undergraduate at **BRAC University** with a specialized focus on the **MERN stack**. My technical journey is driven by a passion for backend systems and a commitment to building high-performance, user-centric full-stack applications.</p>
+              <p>With a solid foundation in **JavaScript, Node.js, and modern database management**, I enjoy solving complex architectural problems. Beyond coding, I am an active leader as the **HR Director at BUCSC** and a **Student Tutor**, where I help others navigate core CSE concepts.</p>
+              <p>I am dedicated to writing clean, maintainable code and continuously exploring new technologies to deliver impactful digital solutions.</p>
             </div>
             
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                "MERN Stack Specialist",
-                "Scalable Architecture",
-                "UI/UX Focused",
-                "Competitive Programmer"
+                "MERN Stack Development",
+                "Backend System Design",
+                "Full-Stack Applications",
+                "Technical Leadership"
               ].map((item, index) => (
                 <motion.div 
                   key={index} 
